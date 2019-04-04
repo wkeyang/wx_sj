@@ -1,0 +1,40 @@
+<!--pages/personal/personal.wxml-->
+<!--基本信息-->
+<view class='box'>
+  <view class='box-top'>
+    <!-- <view class='tou'>
+      <text class='left'>头像</text>
+      <view>
+        <image class='right' src="{{user.head_pic}}"></image>
+      </view>
+    </view> -->
+    <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class='xinxi'>
+      <view class='nnn'>
+        <text class='left'>姓名：</text>
+        <input class='right' name='name' value='{{user.nickname}}'/>
+      </view>
+      <view class='nnn'>
+        <text class='left'>性别：</text>
+        <input class='right' name='sex' value='{{user.sex}}'/>
+      </view>
+      <view class='nnn'>
+        <text class='left'>年龄：</text>
+        <input class='right' name='age' value='{{user.age}}'/>
+      </view>
+      <view class='nnn'>
+        <text class='left'>民族：</text>
+        <input class='right' name='minzu' value='{{user.minzu}}'/>
+      </view>
+      <view class='nnn'>
+        <text class='left'>所属单位：</text>
+        <input class='right' name='danwei' value='{{user.danwei}}'/>
+      </view>
+    </view>
+       <!-- 按钮 -->
+   <button class='edit'  form-type="submit">{{edit_font}}</button>
+</form>
+
+  </view>
+
+</view>

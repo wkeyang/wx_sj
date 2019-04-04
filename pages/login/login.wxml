@@ -1,0 +1,11 @@
+<!--pages/login/login.wxml-->
+<view class="login">
+  <image src="../../images/vankelogo.png"></image>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="section">
+      <input name="userName"  type="text" placeholder="请输入账号" />
+      <input name="userPassword"  type="text" password maxlength="100" placeholder="请输入密码" />
+    </view>
+    <button type="default" formType="submit" hover-class="other-button-hover"> 登录 </button>
+  </form>
+</view>

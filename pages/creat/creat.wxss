@@ -1,0 +1,56 @@
+page {
+  background: rgb(248, 246, 246);
+  border-top: 1px solid #eee;
+}
+
+/* 一个小盒子 */
+
+.box {
+  margin: 40rpx 30rpx;
+  background: white;
+  border-radius: 10rpx;
+  box-shadow: 5px 5px 30px -10px rgba(0, 0, 0, 0.12);
+}
+
+/* 问题 */
+
+.box_title {
+  padding: 15rpx;
+  font-size: 30rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+/* 选项盒子 */
+
+.box_list {
+  padding: 15rpx 15rpx 30rpx 15rpx;
+  font-size: 26rpx;
+}
+
+/* radio */
+
+label {
+  width: 100%;
+  padding: 5rpx 0;
+}
+
+radio {
+  padding: 5rpx;
+  display: block;
+}
+
+/* 多选 */
+
+.mose {
+  color: red;
+}
+checkbox {
+  padding: 5rpx;
+  display: block;
+}
+/* 保存 */
+.edit {
+  background: #2f86c7;
+  color: white;
+ margin-top: 100rpx;
+}

@@ -1,0 +1,45 @@
+{
+  "pages": [ 
+    "pages/result/result",
+    
+    "pages/creat/creat",
+    "pages/user/user",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/login/login",
+    "pages/edit/edit"
+
+   
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "享宝-智慧乡村欢迎你",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#8F9590",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "selectedColor": "#2f86c7",
+    "list": [
+      {
+        "pagePath": "pages/result/result",
+        "selectedIconPath": "imgs/lb_.png",
+        "iconPath": "imgs/lb.png",
+        "text": "调查列表"
+      },
+      {
+        "pagePath": "pages/creat/creat",
+        "selectedIconPath": "imgs/dc_.png",
+        "iconPath": "imgs/dc.png",
+        "text": "调查问卷"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "selectedIconPath": "imgs/grzx_.png",
+        "iconPath": "imgs/grzx.png",
+        "text": "个人中心"
+      }
+    ]
+  }
+}
