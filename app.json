@@ -1,14 +1,13 @@
 {
   "pages": [ 
-    "pages/result/result",
     
     "pages/creat/creat",
     "pages/user/user",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/login/login",
+    "pages/result/result",
     "pages/edit/edit"
-
+    
    
   ],
   "window": {
