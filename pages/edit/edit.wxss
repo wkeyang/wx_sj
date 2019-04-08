@@ -96,10 +96,11 @@
   }
   /* 编辑 */
   .edit{
-    background: #2f86c7;
+    background: #21a4fe;
     color: white;
     position: fixed;
-    bottom: 50rpx;
-    left: 30rpx;
-    right: 30rpx;
+    bottom: 150rpx;
+    left: 50rpx;
+    right: 50rpx;
+    border-radius: 50rpx;
   }

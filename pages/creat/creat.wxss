@@ -50,7 +50,9 @@ checkbox {
 }
 /* 保存 */
 .edit {
-  background: #2f86c7;
+  background: #21a4fe;
   color: white;
- margin-top: 100rpx;
+ 
+ border-radius: 50rpx;
+ margin: 100rpx 50rpx 30rpx 50rpx;
 }
