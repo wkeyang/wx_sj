@@ -29,7 +29,7 @@ page {
 }
 
 .button-hover {
-  background-color: #b02923;
+  background-color: #21a4fe;
 }
 
 /** 添加自定义button点击态样式类**/

@@ -2,26 +2,277 @@
 <form bindsubmit="formSubmit" bindreset="formReset">
   <!-- 单选 -->
   <view class='box'>
-    <view class='box_title'>1.这是问题的内容</view>
+    <view class='box_title'>1.请选择项目类型</view>
     <view class='box_list'>
-      <radio-group class="radio-group" bindchange="radioChange">
-        <label class="radio" wx:for="{{items}}">
-          <radio value="{{item.name}}" checked="{{item.checked}}"> {{item.value}}</radio>
+      <radio-group class="radio-group"  name='xiangmu'  bindchange="radioChange">
+        <label class="radio" wx:for="{{list.Xmbinfo}}" >
+          <radio value="{{item.id}}"> {{item.name}}</radio>
         </label>
       </radio-group>
+    </view>
+  </view>
+
+  <!-- input -->
+  <view class='box'>
+    <view class='box_title'>2.请输入年限</view>
+    <view class='box_list'>
+     <input name='nianxian' placeholder='请输入年限'></input>
     </view>
   </view>
 
   <!-- 多选 -->
   <view class='box'>
     <view class='box_title'>
-    1.这是问题的内容
+    3.请选择伤病部位
     <text class='mose'>(可多选)</text>
     </view>
     <view class='box_list'>
-     <checkbox-group bindchange="checkboxChange">
-  <label class="checkbox" wx:for="{{items}}">
-    <checkbox value="{{item.name}}" checked="{{item.checked}}">{{item.value}}</checkbox>
+     <checkbox-group bindchange="checkboxChange" name='sbwb'>
+  <label class="checkbox" wx:for="{{list.Sbbwbinfo}}">
+    <checkbox value="{{item.name}}">{{item.name}}</checkbox>
+  </label>
+</checkbox-group>
+    </view>
+  </view>
+
+    <!-- 单选 -->
+  <view class='box'>
+    <view class='box_title'>4.请选择伤病程度</view>
+    <view class='box_list'>
+      <radio-group class="radio-group" name='sbcd'>
+        <label class="radio" wx:for="{{list.Sbcdbinfo}}">
+          <radio value="{{item.name}}" > {{item.name}}</radio>
+        </label>
+      </radio-group>
+    </view>
+  </view>
+
+    <!-- 多选 -->
+  <view class='box'>
+    <view class='box_title'>
+    5.请选择伤病种类
+    <text class='mose'>(可多选)</text>
+    </view>
+    <view class='box_list'>
+     <checkbox-group bindchange="checkboxChange" name='sbzl'>
+  <label class="checkbox" wx:for="{{sbzldata}}">
+    <checkbox value="{{item.name}}">{{item.name}}</checkbox>
+  </label>
+</checkbox-group>
+    </view>
+  </view>
+
+      <!-- 单选 -->
+  <view class='box'>
+    <view class='box_title'>6.请选择伤病时间</view>
+    <view class='box_list'>
+      <radio-group class="radio-group" name='sbsj'>
+        <label class="radio" wx:for="{{list.Sbsjbinfo}}">
+          <radio value="{{item.name}}" > {{item.name}}</radio>
+        </label>
+      </radio-group>
+    </view>
+  </view>
+
+      <!-- 多选 -->
+  <view class='box'>
+    <view class='box_title'>
+    7.请选择治疗仪器
+    <text class='mose'>(可多选)</text>
+    </view>
+    <view class='box_list'>
+     <checkbox-group bindchange="checkboxChange" name='yqzl'>
+  <label class="checkbox" wx:for="{{list.Yqzlbinfo}}">
+    <checkbox value="{{item.name}}">{{item.name}}</checkbox>
+  </label>
+</checkbox-group>
+    </view>
+  </view>
+  
+        <!-- 多选 -->
+  <view class='box'>
+    <view class='box_title'>
+    8.请选择治疗方式
+    <text class='mose'>(可多选)</text>
+    </view>
+    <view class='box_list'>
+     <checkbox-group bindchange="checkboxChange" name='zlfs'>
+  <label class="checkbox" wx:for="{{list.Zlfsbinfo}}">
+    <checkbox value="{{item.name}}">{{item.name}}</checkbox>
+  </label>
+</checkbox-group>
+    </view>
+  </view>
+
+      <!-- 单选 -->
+  <view class='box'>
+    <view class='box_title'>9.请选择损伤部位</view>
+    <view class='box_list'>
+      <radio-group class="radio-group" name='ssbw'>
+        <label class="radio" wx:for="{{list.Sbbwbinfo}}">
+          <radio value="{{item.name}}" > {{item.name}}</radio>
+        </label>
+      </radio-group>
+    </view>
+  </view>
+
+        <!-- 单选 -->
+  <view class='box'>
+    <view class='box_title'>10.请选择疲劳程度</view>
+    <view class='box_list'>
+      <radio-group class="radio-group" name='plcd'>
+        <label class="radio" wx:for="{{list.Plcdbinfo}}">
+          <radio value="{{item.name}}" > {{item.name}}</radio>
+        </label>
+      </radio-group>
+    </view>
+  </view>
+
+          <!-- 多选 -->
+  <view class='box'>
+    <view class='box_title'>
+    11.请选择热身运动
+    <text class='mose'>(可多选)</text>
+    </view>
+    <view class='box_list'>
+     <checkbox-group bindchange="checkboxChange" name='rsyd'>
+  <label class="checkbox" wx:for="{{list.Rszlbinfo}}">
+    <checkbox value="{{item.name}}">{{item.name}}</checkbox>
+  </label>
+</checkbox-group>
+    </view>
+  </view>
+
+
+          <!-- 多选 -->
+  <view class='box'>
+    <view class='box_title'>
+    12.请选择训练后热身运动
+    <text class='mose'>(可多选)</text>
+    </view>
+    <view class='box_list'>
+     <checkbox-group bindchange="checkboxChange" name='xlhyd'>
+  <label class="checkbox" wx:for="{{list.Rszlbinfo}}">
+    <checkbox value="{{item.name}}">{{item.name}}</checkbox>
+  </label>
+</checkbox-group>
+    </view>
+  </view>
+ 
+      <!-- 单选 -->
+  <view class='box'>
+    <view class='box_title'>13.请选择伤病受限程度</view>
+    <view class='box_list'>
+      <radio-group class="radio-group" name='sbsx'>
+        <label class="radio" wx:for="{{list.Sbsxcdinfo}}">
+          <radio value="{{item.name}}" > {{item.name}}</radio>
+        </label>
+      </radio-group>
+    </view>
+  </view>
+
+      <!-- 单选 -->
+  <view class='box'>
+    <view class='box_title'>14.请选择治疗反馈</view>
+    <view class='box_list'>
+      <radio-group class="radio-group" name='fkxg'>
+        <label class="radio" wx:for="{{list.Fkxgbinfo}}">
+          <radio value="{{item.name}}" > {{item.name}}</radio>
+        </label>
+      </radio-group>
+    </view>
+  </view>
+
+        <!-- 单选 -->
+  <view class='box'>
+    <view class='box_title'>15.请选择受访对象</view>
+    <view class='box_list'>
+      <radio-group class="radio-group" name='sfdx'>
+        <label class="radio" wx:for="{{list.Sfdxinfo}}">
+          <radio value="{{item.name}}" > {{item.name}}</radio>
+        </label>
+      </radio-group>
+    </view>
+  </view>
+
+          <!-- 单选 -->
+  <view class='box'>
+    <view class='box_title'>16.请选择推拿理疗</view>
+    <view class='box_list'>
+      <radio-group class="radio-group" name='tnllb'>
+        <label class="radio" wx:for="{{list.Tnllbinfo}}">
+          <radio value="{{item.name}}" > {{item.name}}</radio>
+        </label>
+      </radio-group>
+    </view>
+  </view>
+
+            <!-- 单选 -->
+  <view class='box'>
+    <view class='box_title'>17.请选择伤病复发频率</view>
+    <view class='box_list'>
+      <radio-group class="radio-group" name='sbfab'> 
+        <label class="radio" wx:for="{{list.Sbfabinfo}}">
+          <radio value="{{item.name}}" > {{item.name}}</radio>
+        </label>
+      </radio-group>
+    </view>
+  </view>
+
+            <!-- 多选 -->
+  <view class='box'>
+    <view class='box_title'>
+    18.请选择肩关节损伤集群
+    <text class='mose'>(可多选)</text>
+    </view>
+    <view class='box_list'>
+     <checkbox-group bindchange="checkboxChange" name='jgjssjq'>
+  <label class="checkbox" wx:for="{{list.Jgjssjqinfo}}">
+    <checkbox value="{{item.name}}">{{item.name}}</checkbox>
+  </label>
+</checkbox-group>
+    </view>
+  </view>
+
+            <!-- 多选 -->
+  <view class='box'>
+    <view class='box_title'>
+    19.请选择手腕部损伤集群
+    <text class='mose'>(可多选)</text>
+    </view>
+    <view class='box_list'>
+     <checkbox-group bindchange="checkboxChange" name='swbssjrp'>
+  <label class="checkbox" wx:for="{{list.Swbssjrpinfo}}">
+    <checkbox value="{{item.name}}">{{item.name}}</checkbox>
+  </label>
+</checkbox-group>
+    </view>
+  </view>
+              <!-- 多选 -->
+  <view class='box'>
+    <view class='box_title'>
+    20.请选择腰骶部损伤肌肉
+    <text class='mose'>(可多选)</text>
+    </view>
+    <view class='box_list'>
+     <checkbox-group bindchange="checkboxChange" name='ydbssjrq'>
+  <label class="checkbox" wx:for="{{list.Ydbssjrqinfo}}">
+    <checkbox value="{{item.name}}">{{item.name}}</checkbox>
+  </label>
+</checkbox-group>
+    </view>
+  </view>
+
+                <!-- 多选 -->
+  <view class='box'>
+    <view class='box_title'>
+    21.请选择膝踝关节损伤肌群
+    <text class='mose'>(可多选)</text>
+    </view>
+    <view class='box_list'>
+     <checkbox-group bindchange="checkboxChange"  name='xhgjjrq'>
+  <label class="checkbox" wx:for="{{list.Xhgjjrqinfo}}">
+    <checkbox value="{{item.name}}">{{item.name}}</checkbox>
   </label>
 </checkbox-group>
     </view>

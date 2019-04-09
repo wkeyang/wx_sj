@@ -33,6 +33,40 @@ App({
       }
     })
     
+  }, //封装请求函数
+  Wxrequest: function (url, data) {
+    var promise = new Promise((resolve, reject, fail) => {
+      var that = this;
+      //网络请求
+      wx.request({
+        url: url,
+        data: data,
+        method: 'post',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded'
+        },
+        success: function (res) {
+
+          // res.data为后台返回数据    假设返回数据为 {code: "1", message: "操作成功", uuid: "otfB65TqAdl3mQXf49t20tgZczhA", result: {…}}
+          if (res.data.status == 0) { //code=1时表示操作成功，result为后台返回的结果数据
+            
+            resolve(res);
+          }
+          if (res.data.status != 0) { //返回的错误信息
+            wx.showModal({
+              title: '提示',
+              content: res.data.msg,
+            })
+          }  else { //否则返回后台错误提示信息message
+            reject(res);
+          }
+        },
+        fail: function (e) {
+         
+        }
+      })
+    });
+    return promise;
   },
   //封装下拉刷新
   PullDownRefresh: function () {

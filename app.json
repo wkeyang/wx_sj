@@ -1,19 +1,18 @@
 {
-  "pages": [ 
+  "pages": [
     "pages/login/login",
-    "pages/creat/creat",
+    "pages/result/result",
+    "pages/detail/detail",
     "pages/user/user",
+    "pages/creat/creat",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/result/result",
     "pages/edit/edit"
-    
-   
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "享宝-智慧乡村欢迎你",
+    "navigationBarTitleText": "射击运动",
     "navigationBarTextStyle": "black",
     "backgroundColor": "#8F9590",
     "enablePullDownRefresh": true

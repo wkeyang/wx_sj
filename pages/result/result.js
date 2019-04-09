@@ -1,27 +1,87 @@
 // pages/leftSwiperDel/index.js
+var app = getApp();
+var WxApi = require("../../utils/API.js"); //引用api
 Page({
   data: {
-    delBtnWidth: 160,//删除按钮宽度单位（rpx）
-    startX:''
+    delBtnWidth: 160, //删除按钮宽度单位（rpx）
+    startX: '',
+    list: [],
+    page: '1',
   },
-  onLoad: function (options) {
+  //获取列表
+  getlist: function() {
+    let _this = this
+    wx.request({
+      url: WxApi.list,
+      data: {
+        user_id: wx.getStorageSync('user_id'),
+        page: _this.data.page
+      },
+      method: "POST",
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: function(res) {
+
+        let list = _this.data.list
+        // 如果当前页面是第一页 第一次加载 就设置为空数组
+        if (_this.data.page == '1') {
+          list = []
+        }
+        if (res.data.status == 0) {
+          _this.setData({
+            list: list.concat(res.data.data.data)
+          })
+
+        }
+        console.log(res.data.data.data)
+      },
+      fail: function(res) {
+
+      },
+      complete: function(res) {
+        wx.hideLoading()
+      }
+
+    })
+  },
+  detail: function(e) {
+    console.log(e.currentTarget.dataset.id)
+    // 点击的id
+    let id = e.currentTarget.dataset.id
+    wx.setStorageSync('detail_id', id)
+    wx.navigateTo({
+      url: '../detail/detail',
+    })
+  },
+  onLoad: function(options) {
+    this.getlist()
+    // wx.navigateTo({
+    //   url: '../login/login',
+    //   success: function (res) {
+    //     console.log(res)
+    //   },
+    //   fail: function (res) {
+    //     console.log(res)
+
+    //   }
+    // })
     // 页面初始化 options为页面跳转所带来的参数
     this.initEleWidth();
-    this.tempData();
   },
-  onReady: function () {
+  onReady: function() {
     // 页面渲染完成
   },
-  onShow: function () {
+  onShow: function() {
     // 页面显示
   },
-  onHide: function () {
+  onHide: function() {
     // 页面隐藏
   },
-  onUnload: function () {
+  onUnload: function() {
     // 页面关闭
   },
-  touchS: function (e) {
+  touchS: function(e) {
     if (e.touches.length == 1) {
       this.setData({
         //设置触摸起始点水平方向位置
@@ -30,7 +90,7 @@ Page({
     }
     console.log(e.touches[0].clientX)
   },
-  touchM: function (e) {
+  touchM: function(e) {
     if (e.touches.length == 1) {
       //手指移动时水平方向位置
       var moveX = e.touches[0].clientX;
@@ -38,9 +98,9 @@ Page({
       var disX = this.data.startX - moveX;
       var delBtnWidth = this.data.delBtnWidth;
       var txtStyle = "";
-      if (disX == 0 || disX < 0) {//如果移动距离小于等于0，文本层位置不变
+      if (disX == 0 || disX < 0) { //如果移动距离小于等于0，文本层位置不变
         txtStyle = "left:0px";
-      } else if (disX > 0) {//移动距离大于0，文本层left值等于手指移动距离
+      } else if (disX > 0) { //移动距离大于0，文本层left值等于手指移动距离
         txtStyle = "left:-" + disX + "px";
         if (disX >= delBtnWidth) {
           //控制手指移动距离最大值为删除按钮的宽度
@@ -60,7 +120,7 @@ Page({
     }
   },
 
-  touchE: function (e) {
+  touchE: function(e) {
     if (e.changedTouches.length == 1) {
       //手指移动结束后水平位置
       var endX = e.changedTouches[0].clientX;
@@ -83,7 +143,7 @@ Page({
     }
   },
   //获取元素自适应后的实际宽度
-  getEleWidth: function (w) {
+  getEleWidth: function(w) {
     var real = 0;
     try {
       var res = wx.getSystemInfoSync().windowWidth;
@@ -96,14 +156,14 @@ Page({
       // Do something when catch error
     }
   },
-  initEleWidth: function () {
+  initEleWidth: function() {
     var delBtnWidth = this.getEleWidth(this.data.delBtnWidth);
     this.setData({
       delBtnWidth: delBtnWidth
     });
   },
   //点击删除按钮事件
-  delItem: function (e) {
+  delItem: function(e) {
     //获取列表中要删除项的下标
     var index = e.target.dataset.index;
     var list = this.data.list;
@@ -114,70 +174,55 @@ Page({
       list: list
     });
   },
-  //测试临时数据
-  tempData: function () {
-    var list = [
-      {
-        txtStyle: "",
-        icon: "/images/icon0.png",
-        txt: "向左滑动可以删除"
-      },
-      {
-        txtStyle: "",
-        icon: "/images/icon6.png",
-        txt: "微信小程序|联盟（wxapp-union.com）"
-      },
-      {
-        txtStyle: "",
-        icon: "/images/icon1.png",
-        txt: "圣诞老人是爸爸，顺着烟囱往下爬，礼物塞满圣诞袜，平安糖果一大把"
-      },
-      {
-        txtStyle: "",
-        icon: "/images/icon2.png",
-        txt: "圣诞到来，元旦还会远吗？在圣诞这个日子里"
-      },
-      {
-        txtStyle: "",
-        icon: "/images/icon3.png",
-        txt: "圣诞节(Christmas或Cristo Messa ),译名为“基督弥撒”。"
-      },
-      {
-        txtStyle: "",
-        icon: "/images/icon4.png",
-        txt: "一年一度的圣诞节即将到来,姑娘们也纷纷开始跑趴了吧!"
-      },
-      {
-        txtStyle: "",
-        icon: "/images/icon5.png",
-        txt: "圣诞节(Christmas或Cristo Messa ),译名为“基督弥撒”。"
-      },
-      {
-        txtStyle: "",
-        icon: "/images/icon2.png",
-        txt: "你的圣诞节礼物准备好了吗?"
-      },
-      {
-        txtStyle: "",
-        icon: "/images/icon3.png",
-        txt: "一年一度的圣诞节即将到来,姑娘们也纷纷开始跑趴了吧!"
-      },
-      {
-        txtStyle: "",
-        icon: "/images/icon4.png",
-        txt: "圣诞到来，元旦还会远吗？"
-      },
-      {
-        txtStyle: "",
-        icon: "/images/icon5.png",
-        txt: "记下这一刻的心情"
-      },
+  /**
+ * 页面相关事件处理函数--监听用户下拉动作
+ */
+  onPullDownRefresh: function () {
+    app.PullDownRefresh() //下拉函数
+    this.onLoad()
+  },
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function() {
 
-    ];
+    // 显示加载图标
+    wx.showLoading({
+      title: '玩命加载中',
 
+    })
+    // 页数+1
+    let page = this.data.page
+    page = Number(page)
     this.setData({
-      list: list
-    });
-  }
+      page: page + 1
+    })
+    console.log(this.data.page)
+    this.getlist()
+    // wx.request({
+    //   url: 'https://xxx/?page=' + page,
+    //   method: "GET",
+    //   // 请求头部
+    //   header: {
+    //     'content-type': 'application/text'
+    //   },
+    //   success: function (res) {
+    //     // 回调函数
+    //     var moment_list = that.data.moment;
+
+    //     for (var i = 0; i < res.data.data.length; i++) {
+    //       moment_list.push(res.data.data[i]);
+    //     }
+    //     // 设置数据
+    //     that.setData({
+    //       moment: that.data.moment
+    //     })
+    //     // 隐藏加载框
+    //     wx.hideLoading();
+    //   }
+    // })
+
+  },
+
 
 })

@@ -1,14 +1,14 @@
 <view class='index-contier'>
-  <view class='right' bindtap='edits'>编辑</view>
+  <view class='right' bindtap='edits'></view>
   <view class="index-left">
     <view></view>
     <view></view>
   </view>
   <view class="index-center">
     <view class="logo">
-      <image src='../../imgs/tx.jpg'></image>
+      <image src='../../imgs/q.png'></image>
     </view>
-    <view>小猪快跑</view>
+    <view>{{user.name}}</view>
   </view>
 
   <view class="index-right">
@@ -19,30 +19,30 @@
 
 <view class='inform'>
 
-  <view class='phone'>
+  <!-- <view class='phone'>
     <span>手机</span>
     <span>123456788</span>
-  </view>
+  </view> -->
   <view class='name'>
     <span>姓名</span>
-    <span>王婷</span>
+    <span>{{user.name}}</span>
   </view>
   <view class='sex'>
     <span>性别</span>
-    <span>女</span>
+    <span>{{user.sex}}</span>
   </view>
   <view class='age'>
     <span>年龄</span>
-    <span>13</span>
+    <span>{{user.age}}</span>
   </view>
   <view class='sex'>
     <span>民族</span>
-    <span>汉</span>
+    <span>{{user.minzu}}</span>
   </view>
 
   <view class='manger'>
     <span>部门</span>
-    <span>软件部门</span>
+    <span>{{user.ssdw}}</span>
   </view>
 
 </view>

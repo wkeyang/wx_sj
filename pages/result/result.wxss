@@ -56,3 +56,8 @@ view{
     -webkit-overflow-scrolling: touch;
     overflow: scroll;
 }
+.k{
+  /* margin: 0 130rpx; */
+  float: right
+}
+
